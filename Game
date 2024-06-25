@@ -1,0 +1,143 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "toc_visible": true,
+      "authorship_tag": "ABX9TyPmGH9Vn87+2LMiCWCCsCM7",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/albi127/SummerClass_17/blob/main/Game\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "XDSToJJqq8PD"
+      },
+      "outputs": [],
+      "source": [
+        "def main():\n",
+        "    total_miles = 0\n",
+        "    total_gallons = 0\n",
+        "    count = 0\n",
+        "\n",
+        "    while True:\n",
+        "        gallons = float(input(\"Enter the gallons used (-1 to end): \"))\n",
+        "        if gallons == -1:\n",
+        "            break\n",
+        "        miles = float(input(\"Enter the miles driven: \"))\n",
+        "\n",
+        "        miles_per_gallon = miles / gallons\n",
+        "        print(f\"The miles/gallons for this tank was {miles_per_gallon:.6f}\")\n",
+        "\n",
+        "        total_miles += miles\n",
+        "        total_gallons += gallons\n",
+        "        count += 1\n",
+        "\n",
+        "    if count != 0:\n",
+        "        overall_average = total_miles / total_gallons\n",
+        "        print(f\"The overall average miles/gallons was {overall_average:.6f}\")\n",
+        "    else:\n",
+        "        print(\"No data to calculate overall average miles/gallons.\")\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n",
+        "2"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random\n",
+        "\n",
+        "def roll_dice():\n",
+        "    \"\"\"Roll two six-sided dice and return their values.\"\"\"\n",
+        "    die1 = random.randint(1, 6)\n",
+        "    die2 = random.randint(1, 6)\n",
+        "    return die1, die2\n",
+        "\n",
+        "def main():\n",
+        "    print(\"Selamat datang di permainan Craps!\")\n",
+        "\n",
+        "    while True:\n",
+        "        input(\"Tekan Enter untuk melempar dadu...\")\n",
+        "        die1, die2 = roll_dice()\n",
+        "        sum_dice = die1 + die2\n",
+        "        print(f\"Anda melempar {die1} + {die2} = {sum_dice}\")\n",
+        "\n",
+        "        # Determine the outcome based on the first roll\n",
+        "        if sum_dice in (7, 11):\n",
+        "            print(\"Anda menang!\")\n",
+        "            break\n",
+        "        elif sum_dice in (2, 3, 12):\n",
+        "            print(\"Craps! Anda kalah!\")\n",
+        "            break\n",
+        "        else:\n",
+        "            # Establish the point\n",
+        "            point = sum_dice\n",
+        "            print(f\"Point Anda adalah {point}. Terus melempar untuk mencapai point Anda.\")\n",
+        "\n",
+        "            while True:\n",
+        "                input(\"Tekan Enter untuk melempar dadu lagi...\")\n",
+        "                die1, die2 = roll_dice()\n",
+        "                sum_dice = die1 + die2\n",
+        "                print(f\"Anda melempar {die1} + {die2} = {sum_dice}\")\n",
+        "\n",
+        "                if sum_dice == point:\n",
+        "                    print(\"Anda mencapai point Anda! Anda menang!\")\n",
+        "                    break\n",
+        "                elif sum_dice == 7:\n",
+        "                    print(\"Anda melempar angka 7. Anda kalah!\")\n",
+        "                    break\n",
+        "            break\n",
+        "\n",
+        "if __name__ == \"__main__\":\n",
+        "    main()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BCPUw72BxU_1",
+        "outputId": "55cbabee-bcf6-43be-edbb-b749f10fa07f"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Selamat datang di permainan Craps!\n",
+            "Tekan Enter untuk melempar dadu...\n",
+            "Anda melempar 5 + 4 = 9\n",
+            "Point Anda adalah 9. Terus melempar untuk mencapai point Anda.\n",
+            "Tekan Enter untuk melempar dadu lagi...\n",
+            "Anda melempar 2 + 6 = 8\n",
+            "Tekan Enter untuk melempar dadu lagi...3\n",
+            "Anda melempar 6 + 1 = 7\n",
+            "Anda melempar angka 7. Anda kalah!\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
